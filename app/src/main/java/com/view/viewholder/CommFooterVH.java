@@ -9,11 +9,12 @@ import com.base.BaseViewHolder;
 import com.ui.main.R;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
 
 
 public class CommFooterVH extends BaseViewHolder<Object> {
+    @Bind(R.id.progressbar)
     public ProgressBar progressbar;
+    @Bind(R.id.tv_state)
     public TextView tv_state;
     public static final int LAYOUT_TYPE = R.layout.list_footer_view;
 
@@ -28,7 +29,7 @@ public class CommFooterVH extends BaseViewHolder<Object> {
 
     @Override
     public void onBindViewHolder(View view, Object o) {
-        boolean isHasMore = (o == null ? false : true);
+        boolean isHasMore = (null == o ? false : true);
         progressbar.setVisibility(isHasMore ? View.VISIBLE : View.GONE);
         tv_state.setText(isHasMore ? "正在加载" : "已经到底");
     }
